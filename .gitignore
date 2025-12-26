@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+venv/
+.env
+
+# Database
+*.db
+instance/
+
+# Uploads (user uploaded images)
+static/uploads/*
+!static/uploads/.gitkeep
+
+# YOLO model
+*.pt
+
+# IDE
+.vscode/
+.idea/

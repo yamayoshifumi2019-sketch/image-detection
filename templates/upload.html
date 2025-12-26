@@ -1,0 +1,29 @@
+<!--
+upload.html - Image Upload Page
+
+This page allows logged-in users to upload images for object detection.
+The form uses enctype="multipart/form-data" for file uploads.
+-->
+
+{% extends 'base.html' %}
+
+{% block title %}Upload Image - Object Detection App{% endblock %}
+
+{% block content %}
+<div class="upload-page">
+    <h1>Upload Image</h1>
+    <p>Select an image to upload for object detection.</p>
+
+    <form method="POST" enctype="multipart/form-data" class="upload-form">
+        <div class="form-group">
+            <label for="image">Choose an image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+            <p class="help-text">Supported formats: PNG, JPG, JPEG, GIF, BMP (max 16MB)</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Upload & Detect Objects</button>
+    </form>
+
+    <a href="{{ url_for('images') }}" class="back-link">View My Images</a>
+</div>
+{% endblock %}

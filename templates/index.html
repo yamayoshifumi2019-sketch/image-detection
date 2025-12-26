@@ -1,0 +1,56 @@
+<!--
+index.html - Home Page
+
+This is the landing page of the application.
+It shows a welcome message and guides users to sign up or log in.
+-->
+
+{% extends 'base.html' %}
+
+{% block title %}Home - Object Detection App{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to Object Detection App</h1>
+    <p class="hero-text">
+        Upload your images and let AI detect objects automatically using YOLOv8!
+    </p>
+
+    {% if current_user.is_authenticated %}
+        <!-- User is logged in - show action buttons -->
+        <div class="hero-actions">
+            <a href="{{ url_for('upload') }}" class="btn btn-primary">Upload Image</a>
+            <a href="{{ url_for('images') }}" class="btn btn-secondary">View My Images</a>
+        </div>
+    {% else %}
+        <!-- User is not logged in - show signup/login buttons -->
+        <div class="hero-actions">
+            <a href="{{ url_for('signup') }}" class="btn btn-primary">Sign Up</a>
+            <a href="{{ url_for('login') }}" class="btn btn-secondary">Login</a>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Features Section -->
+<div class="features">
+    <h2>How It Works</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>1. Sign Up</h3>
+            <p>Create a free account to get started.</p>
+        </div>
+        <div class="feature-card">
+            <h3>2. Upload</h3>
+            <p>Upload any image (PNG, JPG, etc.).</p>
+        </div>
+        <div class="feature-card">
+            <h3>3. Detect</h3>
+            <p>AI automatically detects objects.</p>
+        </div>
+        <div class="feature-card">
+            <h3>4. View</h3>
+            <p>See results with bounding boxes.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

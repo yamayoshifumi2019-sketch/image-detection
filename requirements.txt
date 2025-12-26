@@ -1,0 +1,10 @@
+# Object Detection App - Required Packages
+#
+# Install with: pip install -r requirements.txt
+
+flask
+flask-sqlalchemy
+flask-login
+ultralytics
+opencv-python
+werkzeug
